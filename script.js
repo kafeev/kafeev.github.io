@@ -12,6 +12,7 @@ function SampleController($scope) {
 
   vm.Title = "My fist app";
 
+  
   vm.data = [{
     "firstname":"rustam",
     "lastname":"kafeev",
