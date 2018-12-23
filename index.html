@@ -26,10 +26,16 @@
 </head>
 
 <body ng-controller="SampleController as vm">
-  <h1>Simple app</h1>
+  <h1>{{Title}}</h1>
 
 
   <div class="container">
+<div class="row">
+  <div class="col-md-4">
+      <input type="text" ng-data="" />
+  </div>
+</div>
+
     <div class="row">
       <div class="col-md-3">
         <button class="btn btn-primary" ng-click="vm.expandAll(vm.data)">Expand All</button>
