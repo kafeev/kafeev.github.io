@@ -32,75 +32,23 @@
 <body ng-controller="SampleController as vm">
 
   <div class="container">
-    <div class="row">
-      <h3>Поиск по соцсетям:</h3>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Имя</label>
-            <input type="text" class="form-control" id="tbxFirstName" aria-describedby="emailHelp" placeholder="имя">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Фамилия</label>
-            <input type="text" class="form-control" id="tbxLastName" placeholder="фамилия">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Телефон</label>
-            <input type="text" class="form-control" id="tbxPhome" placeholder="телефон">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Никнейм в сети</label>
-            <input type="text" class="form-control" id="tbxNikname" placeholder="ник нейм в сетях">
-          </div>
 
 
-          <div class="form-group">
-            <label for="exampleInputPassword1">email</label>
-            <input type="email" class="form-control" id="tbxEmail" placeholder="email">
-          </div>
+  </div>
 
+  <div id="pos-credit-container"></div>
+  <script src="https://my.pochtabank.ru/sdk/v1/pos-credit.js"></script>
+  <script>
+    var options = ""; // json описан в п.2   window.PBSDK.posCredit.mount('#pos-credit-container', options);
 
-          <div class="form-group">
-            <label for="exampleInputPassword1">возраст (кол-во лет)</label>
-            <input type="number" class="form-control" id="tbxNumber" placeholder="возраст">
-          </div>
+    // подписка на событие завершения заполнения заявки
+    window.PBSDK.posCredit.on('done', function(id) {
+      console.log('Id заявки: ' + id)
+    });
 
-
-          <button type="submit" class="btn btn-primary">Поиск</button>
-        </form>
-
-
-
-      </div>
-
-      <div class="col-md-6">
-
-        <p>Поиск по соцсетям:</p>
-        <ul>
-          <li>VK</li>
-          <li>facebook</li>
-          <li>mail</li>
-          <li>одноклассники</li>
-        </ul>
-
-        <p>Авторизация через VK</p>
-
-
-        <!-- VK Widget -->
-        <div id="vk_auth"></div>
-        <script type="text/javascript">
-          VK.Widgets.Auth("vk_auth", { "authUrl": "/dev/Login" });
-        </script>
-      </div>
-
-    </div>
-
+    // При необходимости можно убрать виджет вызвать unmount
+    // window.PBSDK.posCredit.unmount('#pos-credit-container');
+  </script>
 
 
 
