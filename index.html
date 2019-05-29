@@ -9,8 +9,44 @@
 
 
   <script src="https://my.pochtabank.ru/sdk/v1/pos-credit.js"></script>
+
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <h1>Hello</h1>
+
+
+  <div id="pos-credit-container">Купить</div>
   <script>
-    var options = ""; // json описан в п.2   window.PBSDK.posCredit.mount('#pos-credit-container', options);
+    var options = {
+        ttName: 'г. Москва, Преображенская пл. 8',
+        fullName: 'Иванов Иван Иванович',
+        inn: 'string',
+        kpp: 'string',
+        extAppId: 'string',
+        product: 'string',
+        phone: '9251112233',
+        manualOrderInput: false,
+        returnUrl: 'http://myshop.ru',
+        order: [{
+          category: '212',
+          model: 'Сковорода',
+          mark: 'Tefal',
+          quantity: 1,
+          price: 3400.99
+        }, {
+          category: '212',
+          model: 'Наименование товара на бумажных накладных',
+          quantity: 2,
+          price: 400
+        }]
+      }
+      // json описан в п.2   window.PBSDK.posCredit.mount('#pos-credit-container', options);
+
+    window.PBSDK.posCredit.mount('#pos-credit-container', options);
 
     // подписка на событие завершения заполнения заявки
     window.PBSDK.posCredit.on('done', function(id) {
@@ -20,22 +56,6 @@
     // При необходимости можно убрать виджет вызвать unmount
     // window.PBSDK.posCredit.unmount('#pos-credit-container');
   </script>
-
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-
-  <h1>Hello</h1>
-
-  <div id="pos-credit-container">
-
-    <a id="pos-credit-link" href="#">Покупки в кредит</a>
-
-  </div>
-
-
-
 
 </body>
 
